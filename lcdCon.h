@@ -7,8 +7,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef _LCD_H
-#define	_LCD_H
+#ifndef lcdCon_H
+#define	lcdCon_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #define _XTAL_FREQ 8000000
@@ -30,6 +30,8 @@ void ready_LCD();
 void command_LCD(unsigned char x);
 void display_LCD(unsigned char data);
 void display_string_LCD(unsigned char *data);
-void second_line();
-#endif	/* _LCD_H */
+void first_line_LCD();
+void second_line_LCD();
+void clear_LCD();
+#endif	/* lcdCon_H */
 

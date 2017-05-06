@@ -8,8 +8,8 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef _keypadCon_H
-#define	_keypadCon_H
+#ifndef keypadCon_H
+#define	keypadCon_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #define _XTAL_FREQ 8000000
@@ -27,6 +27,5 @@ extern "C" {
 
 unsigned char getKey();
 unsigned char obtainedKey();
-void ground();
 #endif	/* keypadCon_H */
 

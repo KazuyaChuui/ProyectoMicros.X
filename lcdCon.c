@@ -71,6 +71,12 @@ void display_string_LCD(unsigned char *data){
     while(*data)
         display_LCD(*data++);
 }
-void second_line(){
+void first_line_LCD(){
+    command_LCD(0x20);
+}
+void second_line_LCD(){
     command_LCD(0xC0);
+}
+void clear_LCD(){
+    command_LCD(0x01);
 }

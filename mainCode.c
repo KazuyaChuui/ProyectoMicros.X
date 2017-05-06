@@ -51,9 +51,9 @@ void main(void) {
     setup_LCD();
     pwmInit();
     while(1){
-        //display_string_LCD("Que pedo");
-        
-        for(unsigned int i = 0; i<17; i++){
+        menu();
+        /*
+          for(unsigned int i = 0; i<17; i++){
             key = obtainedKey();
             if(key == 'A'){
                 open();
@@ -66,7 +66,9 @@ void main(void) {
             display_LCD(key);
             ready_LCD();        
         }
-        command_LCD(0x01);
+        clear_LCD();
+         */
+        
     }
     
     return;
