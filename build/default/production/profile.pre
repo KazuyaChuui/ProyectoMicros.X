@@ -15404,8 +15404,9 @@ unsigned char getKey();
 unsigned char obtainedKey();
 
 # 14 "profile.c"
-unsigned char eeprom_r(unsigned char address){
+unsigned char eeprom_r(unsigned int address){
 EEADR = address;
+EEADRH = address >> 8;
 EECON1bits.CFGS = 0;
 EECON1bits.EEPGD = 0;
 EECON1bits.RD = 1;
@@ -15413,12 +15414,14 @@ __nop();
 __nop();
 return EEDATA;
 }
-void eeprom_w(unsigned char address, unsigned char value){
+void eeprom_w(unsigned int address, unsigned char value){
 EEADR = address;
+EEADRH = address >> 8;
 EEDATA = value;
 EECON1bits.EEPGD =0;
 EECON1bits.CFGS = 0;
-INTCONbits.GIE = 0;
+EECON1bits.WREN = 1;
+INTCONbits.GIE = 0 ;
 EECON2 = 0x55;
 EECON2 = 0xAA;
 EECON1bits.WR = 1;

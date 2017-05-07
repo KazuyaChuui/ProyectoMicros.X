@@ -1,6 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "28461 /Applications/microchip/xc8/v1.41/include/pic18f4585.h
 [v _EEADR `Vuc ~T0 @X0 0 e@4009 ]
+"28467
+[v _EEADRH `Vuc ~T0 @X0 0 e@4010 ]
 "28390
 [s S920 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S920 . RD WR WREN WRERR FREE . CFGS EEPGD ]
@@ -11584,240 +11586,249 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;keypadCon.h: 28: unsigned char getKey();
 [; ;keypadCon.h: 29: unsigned char obtainedKey();
 "14 profile.c
-[v _eeprom_r `(uc ~T0 @X0 1 ef1`uc ]
+[v _eeprom_r `(uc ~T0 @X0 1 ef1`ui ]
 {
-[; ;profile.c: 14: unsigned char eeprom_r(unsigned char address){
+[; ;profile.c: 14: unsigned char eeprom_r(unsigned int address){
 [e :U _eeprom_r ]
-[v _address `uc ~T0 @X0 1 r1 ]
+[v _address `ui ~T0 @X0 1 r1 ]
 [f ]
 [; ;profile.c: 15: EEADR = address;
 "15
-[e = _EEADR _address ]
-[; ;profile.c: 16: EECON1bits.CFGS = 0;
+[e = _EEADR -> _address `uc ]
+[; ;profile.c: 16: EEADRH = address >> 8;
 "16
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-[; ;profile.c: 17: EECON1bits.EEPGD = 0;
+[e = _EEADRH -> >> _address -> 8 `i `uc ]
+[; ;profile.c: 17: EECON1bits.CFGS = 0;
 "17
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-[; ;profile.c: 18: EECON1bits.RD = 1;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+[; ;profile.c: 18: EECON1bits.EEPGD = 0;
 "18
-[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
-[; ;profile.c: 19: __nop();
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;profile.c: 19: EECON1bits.RD = 1;
 "19
-[e ( ___nop ..  ]
+[e = . . _EECON1bits 0 0 -> -> 1 `i `uc ]
 [; ;profile.c: 20: __nop();
 "20
 [e ( ___nop ..  ]
-[; ;profile.c: 21: return EEDATA;
+[; ;profile.c: 21: __nop();
 "21
+[e ( ___nop ..  ]
+[; ;profile.c: 22: return EEDATA;
+"22
 [e ) _EEDATA ]
 [e $UE 1085  ]
-[; ;profile.c: 22: }
-"22
+[; ;profile.c: 23: }
+"23
 [e :UE 1085 ]
 }
-"23
-[v _eeprom_w `(v ~T0 @X0 1 ef2`uc`uc ]
+"24
+[v _eeprom_w `(v ~T0 @X0 1 ef2`ui`uc ]
 {
-[; ;profile.c: 23: void eeprom_w(unsigned char address, unsigned char value){
+[; ;profile.c: 24: void eeprom_w(unsigned int address, unsigned char value){
 [e :U _eeprom_w ]
-[v _address `uc ~T0 @X0 1 r1 ]
+[v _address `ui ~T0 @X0 1 r1 ]
 [v _value `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;profile.c: 24: EEADR = address;
-"24
-[e = _EEADR _address ]
-[; ;profile.c: 25: EEDATA = value;
+[; ;profile.c: 25: EEADR = address;
 "25
-[e = _EEDATA _value ]
-[; ;profile.c: 26: EECON1bits.EEPGD =0;
+[e = _EEADR -> _address `uc ]
+[; ;profile.c: 26: EEADRH = address >> 8;
 "26
-[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
-[; ;profile.c: 27: EECON1bits.CFGS = 0;
+[e = _EEADRH -> >> _address -> 8 `i `uc ]
+[; ;profile.c: 27: EEDATA = value;
 "27
-[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
-[; ;profile.c: 28: INTCONbits.GIE = 0;
+[e = _EEDATA _value ]
+[; ;profile.c: 28: EECON1bits.EEPGD =0;
 "28
-[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
-[; ;profile.c: 29: EECON2 = 0x55;
+[e = . . _EECON1bits 0 7 -> -> 0 `i `uc ]
+[; ;profile.c: 29: EECON1bits.CFGS = 0;
 "29
-[e = _EECON2 -> -> 85 `i `uc ]
-[; ;profile.c: 30: EECON2 = 0xAA;
+[e = . . _EECON1bits 0 6 -> -> 0 `i `uc ]
+[; ;profile.c: 30: EECON1bits.WREN = 1;
 "30
-[e = _EECON2 -> -> 170 `i `uc ]
-[; ;profile.c: 31: EECON1bits.WR = 1;
+[e = . . _EECON1bits 0 2 -> -> 1 `i `uc ]
+[; ;profile.c: 31: INTCONbits.GIE = 0 ;
 "31
-[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
-[; ;profile.c: 32: while(EECON1bits.WR);
+[e = . . _INTCONbits 1 7 -> -> 0 `i `uc ]
+[; ;profile.c: 32: EECON2 = 0x55;
 "32
+[e = _EECON2 -> -> 85 `i `uc ]
+[; ;profile.c: 33: EECON2 = 0xAA;
+"33
+[e = _EECON2 -> -> 170 `i `uc ]
+[; ;profile.c: 34: EECON1bits.WR = 1;
+"34
+[e = . . _EECON1bits 0 1 -> -> 1 `i `uc ]
+[; ;profile.c: 35: while(EECON1bits.WR);
+"35
 [e $U 1087  ]
 [e :U 1088 ]
 [e :U 1087 ]
 [e $ != -> . . _EECON1bits 0 1 `i -> -> -> 0 `i `Vuc `i 1088  ]
 [e :U 1089 ]
-[; ;profile.c: 33: INTCONbits.GIE = 1;
-"33
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;profile.c: 34: EECON1bits.WREN = 0;
-"34
-[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
-[; ;profile.c: 36: }
+[; ;profile.c: 36: INTCONbits.GIE = 1;
 "36
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;profile.c: 37: EECON1bits.WREN = 0;
+"37
+[e = . . _EECON1bits 0 2 -> -> 0 `i `uc ]
+[; ;profile.c: 39: }
+"39
 [e :UE 1086 ]
 }
-"37
+"40
 [v _readPassword `(uc ~T0 @X0 1 ef1`uc ]
 {
-[; ;profile.c: 37: unsigned char readPassword(unsigned char address){
+[; ;profile.c: 40: unsigned char readPassword(unsigned char address){
 [e :U _readPassword ]
 [v _address `uc ~T0 @X0 1 r1 ]
 [f ]
-"38
+"41
 [v _value `Vuc ~T0 @X0 1 a ]
-[; ;profile.c: 38: volatile unsigned char value;
-[; ;profile.c: 39: value = eeprom_r(address);
-"39
-[e = _value ( _eeprom_r (1 _address ]
-[; ;profile.c: 40: return value;
-"40
+[; ;profile.c: 41: volatile unsigned char value;
+[; ;profile.c: 42: value = eeprom_r(address);
+"42
+[e = _value ( _eeprom_r (1 -> _address `ui ]
+[; ;profile.c: 43: return value;
+"43
 [e ) _value ]
 [e $UE 1090  ]
-[; ;profile.c: 41: }
-"41
+[; ;profile.c: 44: }
+"44
 [e :UE 1090 ]
 }
-"42
+"45
 [v _writePassword `(v ~T0 @X0 1 ef2`uc`uc ]
 {
-[; ;profile.c: 42: void writePassword(unsigned char value, unsigned char address){
+[; ;profile.c: 45: void writePassword(unsigned char value, unsigned char address){
 [e :U _writePassword ]
 [v _value `uc ~T0 @X0 1 r1 ]
 [v _address `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;profile.c: 43: eeprom_w(address, value);
-"43
-[e ( _eeprom_w (2 , _address _value ]
-[; ;profile.c: 44: }
-"44
+[; ;profile.c: 46: eeprom_w(address, value);
+"46
+[e ( _eeprom_w (2 , -> _address `ui _value ]
+[; ;profile.c: 47: }
+"47
 [e :UE 1091 ]
 }
-"45
+"48
 [v _profile `(v ~T0 @X0 1 ef ]
 {
-[; ;profile.c: 45: void profile(){
+[; ;profile.c: 48: void profile(){
 [e :U _profile ]
 [f ]
-"46
-[v _i `ui ~T0 @X0 1 a ]
-[; ;profile.c: 46: unsigned int i = 0;
-[e = _i -> -> 0 `i `ui ]
-[; ;profile.c: 47: ready_LCD();
-"47
-[e ( _ready_LCD ..  ]
-[; ;profile.c: 48: display_string_LCD("Which letter do");
-"48
-[e ( _display_string_LCD (1 -> :s 1C `*uc ]
-[; ;profile.c: 49: second_line_LCD();
 "49
-[e ( _second_line_LCD ..  ]
-[; ;profile.c: 50: display_string_LCD("U Prefer A B C D");
+[v _i `ui ~T0 @X0 1 a ]
+[; ;profile.c: 49: unsigned int i = 0;
+[e = _i -> -> 0 `i `ui ]
+[; ;profile.c: 50: ready_LCD();
 "50
-[e ( _display_string_LCD (1 -> :s 2C `*uc ]
-[; ;profile.c: 51: writePassword(obtainedKey(),0x20);
+[e ( _ready_LCD ..  ]
+[; ;profile.c: 51: display_string_LCD("Which letter do");
 "51
-[e ( _writePassword (2 , ( _obtainedKey ..  -> -> 32 `i `uc ]
-[; ;profile.c: 52: clear_LCD();
+[e ( _display_string_LCD (1 -> :s 1C `*uc ]
+[; ;profile.c: 52: second_line_LCD();
 "52
-[e ( _clear_LCD ..  ]
-[; ;profile.c: 53: first_line_LCD();
-"53
-[e ( _first_line_LCD ..  ]
-[; ;profile.c: 54: display_string_LCD("Introduce Psswd");
-"54
-[e ( _display_string_LCD (1 -> :s 3C `*uc ]
-[; ;profile.c: 55: second_line_LCD();
-"55
 [e ( _second_line_LCD ..  ]
-[; ;profile.c: 56: display_string_LCD("Only two keys");
+[; ;profile.c: 53: display_string_LCD("U Prefer A B C D");
+"53
+[e ( _display_string_LCD (1 -> :s 2C `*uc ]
+[; ;profile.c: 54: writePassword(obtainedKey(),0x20);
+"54
+[e ( _writePassword (2 , ( _obtainedKey ..  -> -> 32 `i `uc ]
+[; ;profile.c: 55: clear_LCD();
+"55
+[e ( _clear_LCD ..  ]
+[; ;profile.c: 56: first_line_LCD();
 "56
-[e ( _display_string_LCD (1 -> :s 4C `*uc ]
-[; ;profile.c: 57: do{
+[e ( _first_line_LCD ..  ]
+[; ;profile.c: 57: display_string_LCD("Introduce Psswd");
 "57
+[e ( _display_string_LCD (1 -> :s 3C `*uc ]
+[; ;profile.c: 58: second_line_LCD();
+"58
+[e ( _second_line_LCD ..  ]
+[; ;profile.c: 59: display_string_LCD("Only two keys");
+"59
+[e ( _display_string_LCD (1 -> :s 4C `*uc ]
+[; ;profile.c: 60: do{
+"60
 [e :U 1095 ]
 {
-[; ;profile.c: 58: writePassword(obtainedKey(),0x00+1);
-"58
+[; ;profile.c: 61: writePassword(obtainedKey(),0x00+1);
+"61
 [e ( _writePassword (2 , ( _obtainedKey ..  -> + -> 0 `i -> 1 `i `uc ]
-[; ;profile.c: 59: i++;
-"59
+[; ;profile.c: 62: i++;
+"62
 [e ++ _i -> -> 1 `i `ui ]
-"60
+"63
 }
-[; ;profile.c: 60: }while(i<2);
+[; ;profile.c: 63: }while(i<2);
 [e $ < _i -> -> 2 `i `ui 1095  ]
 [e :U 1094 ]
-[; ;profile.c: 61: clear_LCD();
-"61
+[; ;profile.c: 64: clear_LCD();
+"64
 [e ( _clear_LCD ..  ]
-[; ;profile.c: 62: first_line_LCD();
-"62
+[; ;profile.c: 65: first_line_LCD();
+"65
 [e ( _first_line_LCD ..  ]
-[; ;profile.c: 63: }
-"63
+[; ;profile.c: 66: }
+"66
 [e :UE 1092 ]
 }
-"64
+"67
 [v _checkPassword `(uc ~T0 @X0 1 ef ]
 {
-[; ;profile.c: 64: unsigned char checkPassword(){
+[; ;profile.c: 67: unsigned char checkPassword(){
 [e :U _checkPassword ]
 [f ]
-"65
+"68
 [v _i `uc ~T0 @X0 1 a ]
-[; ;profile.c: 65: unsigned char i = 0;
+[; ;profile.c: 68: unsigned char i = 0;
 [e = _i -> -> 0 `i `uc ]
-[; ;profile.c: 67: do{
-"67
+[; ;profile.c: 70: do{
+"70
 [e :U 1099 ]
 {
-"68
+"71
 [v _pass `uc ~T0 @X0 1 a ]
-[; ;profile.c: 68: unsigned char pass = readPassword(0x00+1);
+[; ;profile.c: 71: unsigned char pass = readPassword(0x00+1);
 [e = _pass ( _readPassword (1 -> + -> 0 `i -> 1 `i `uc ]
-[; ;profile.c: 69: if(obtainedKey() == pass){
-"69
+[; ;profile.c: 72: if(obtainedKey() == pass){
+"72
 [e $ ! == -> ( _obtainedKey ..  `i -> _pass `i 1100  ]
 {
-[; ;profile.c: 70: return 1;
-"70
+[; ;profile.c: 73: return 1;
+"73
 [e ) -> -> 1 `i `uc ]
 [e $UE 1096  ]
-"71
+"74
 }
-[; ;profile.c: 71: }else if((i<2) && obtainedKey() != pass){
+[; ;profile.c: 74: }else if((i<2) && obtainedKey() != pass){
 [e $U 1101  ]
 [e :U 1100 ]
 [e $ ! && < -> _i `i -> 2 `i != -> ( _obtainedKey ..  `i -> _pass `i 1102  ]
 {
-[; ;profile.c: 72: return 0;
-"72
+[; ;profile.c: 75: return 0;
+"75
 [e ) -> -> 0 `i `uc ]
 [e $UE 1096  ]
-"73
+"76
 }
 [e :U 1102 ]
-"74
+"77
 [e :U 1101 ]
-[; ;profile.c: 73: }
-[; ;profile.c: 74: i++;
+[; ;profile.c: 76: }
+[; ;profile.c: 77: i++;
 [e ++ _i -> -> 1 `i `uc ]
-"75
+"78
 }
-[; ;profile.c: 75: }while(i<2);
+[; ;profile.c: 78: }while(i<2);
 [e $ < -> _i `i -> 2 `i 1099  ]
 [e :U 1098 ]
-[; ;profile.c: 77: }
-"77
+[; ;profile.c: 80: }
+"80
 [e :UE 1096 ]
 }
 [a 4C 79 110 108 121 32 116 119 111 32 107 101 121 115 0 ]

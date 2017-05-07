@@ -11,8 +11,9 @@
 #include "lcdCon.h"
 #include "keypadCon.h"
 
-unsigned char eeprom_r(unsigned char address){
+unsigned char eeprom_r(unsigned int address){
     EEADR = address;
+    EEADRH = address >> 8;
 	EECON1bits.CFGS = 0;// allow access to EEPROM
 	EECON1bits.EEPGD = 0;//to have access
 	EECON1bits.RD = 1;
@@ -20,12 +21,14 @@ unsigned char eeprom_r(unsigned char address){
     NOP();
     return EEDATA;
 }
-void eeprom_w(unsigned char address, unsigned char value){
+void eeprom_w(unsigned int address, unsigned char value){
     EEADR = address;
+    EEADRH = address >> 8;
     EEDATA = value;
     EECON1bits.EEPGD =0;
     EECON1bits.CFGS = 0;
-    INTCONbits.GIE = 0; //disable interruptions
+    EECON1bits.WREN = 1;
+    INTCONbits.GIE = 0 ; //disable interruptions
     EECON2 = 0x55;
     EECON2 = 0xAA;
     EECON1bits.WR = 1;
