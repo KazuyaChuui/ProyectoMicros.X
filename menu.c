@@ -53,6 +53,8 @@ void menu(){
             ready_LCD();
             display_string_LCD("Bye user ");
             display_LCD(readPassword(0x20));
+            second_line_LCD();
+            display_string_LCD("Alarm Active");
             __delay_ms(2500);
             flag = 1;
             return;

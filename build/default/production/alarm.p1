@@ -1,88 +1,42 @@
 Version 3.2 HI-TECH Software Intermediate Code
-[p mainexit ]
-"31245 /Applications/microchip/xc8/v1.41/include/pic18f4585.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"29120
-[v _CMCON `Vuc ~T0 @X0 0 e@4020 ]
-"29215
-[s S958 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S958 . CVR CVRSS CVRR CVROE CVREN ]
-"29222
-[s S959 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S959 . CVR0 CVR1 CVR2 CVR3 CVREF ]
-"29229
-[s S960 :6 `uc 1 :1 `uc 1 ]
-[n S960 . . CVROEN ]
-"29214
-[u S957 `S958 1 `S959 1 `S960 1 ]
-[n S957 . . . . ]
-"29234
-[v _CVRCONbits `VS957 ~T0 @X0 0 e@4021 ]
-"29858
-[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"31737
-[s S1075 :7 `uc 1 :1 `uc 1 ]
-[n S1075 . . NOT_RBPU ]
-"31741
-[s S1076 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1076 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"31751
-[s S1077 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S1077 . . T0IP . RBPU ]
-"31736
-[u S1074 `S1075 1 `S1076 1 `S1077 1 ]
-[n S1074 . . . . ]
-"31758
-[v _INTCON2bits `VS1074 ~T0 @X0 0 e@4081 ]
-"25228
-[v _PORTA `Vuc ~T0 @X0 0 e@3968 ]
-"25430
-[v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"25603
-[v _PORTC `Vuc ~T0 @X0 0 e@3970 ]
-"25772
-[v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
-"25951
-[v _PORTE `Vuc ~T0 @X0 0 e@3972 ]
-"26049
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"26160
-[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"26271
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"26382
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
-"26493
-[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"26544
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"26765
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"26986
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"27207
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"27428
-[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"27 lcdCon.h
-[v _setup_LCD `(v ~T0 @X0 0 ef ]
-"28 status.h
-[v _pwmInit `(v ~T0 @X0 0 ef ]
-"27 profile.h
-[v _readPassword `(uc ~T0 @X0 0 ef1`uc ]
-"30
-[v _profile `(v ~T0 @X0 0 ef ]
-"28 lcdCon.h
-[v _ready_LCD `(v ~T0 @X0 0 ef ]
-"31
-[v _display_string_LCD `(v ~T0 @X0 0 ef1`*uc ]
-"28 alarm.h
-[v _alarm `(v ~T0 @X0 0 ef ]
-"31 profile.h
-[v _checkPassword `(uc ~T0 @X0 0 ef ]
-"34 lcdCon.h
-[v _clear_LCD `(v ~T0 @X0 0 ef ]
-"25234 /Applications/microchip/xc8/v1.41/include/pic18f4585.h
+"25957 /Applications/microchip/xc8/v1.41/include/pic18f4585.h
+[s S835 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S835 . RE0 RE1 RE2 RE3 ]
+"25963
+[s S836 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S836 . PD2 PC2 CCP10 CCP9E ]
+"25969
+[s S837 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S837 . RDE WRE CS PC3E ]
+"25975
+[s S838 :2 `uc 1 :1 `uc 1 ]
+[n S838 . . PB2 ]
+"25956
+[u S834 `S835 1 `S836 1 `S837 1 `S838 1 ]
+[n S834 . . . . . ]
+"25980
+[v _PORTEbits `VS834 ~T0 @X0 0 e@3972 ]
+"25436
+[s S817 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S817 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"25446
+[s S818 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S818 . INT0 INT1 INT2 CANRX KBI0 KBI1 KBI2 KBI3 ]
+"25456
+[s S819 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S819 . AN10 AN8 CANTX . AN9 PGM PGC PGD ]
+"25466
+[s S820 :1 `uc 1 ]
+[n S820 . FLT0 ]
+"25469
+[s S821 :3 `uc 1 :1 `uc 1 ]
+[n S821 . . CCP2_PA2 ]
+"25435
+[u S816 `S817 1 `S818 1 `S819 1 `S820 1 `S821 1 ]
+[n S816 . . . . . . ]
+"25474
+[v _PORTBbits `VS816 ~T0 @X0 0 e@3969 ]
+"25234
 [s S808 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S808 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
 "25244
@@ -111,35 +65,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S807 . . . . . . . . . ]
 "25286
 [v _PORTAbits `VS807 ~T0 @X0 0 e@3968 ]
-"25957
-[s S835 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S835 . RE0 RE1 RE2 RE3 ]
-"25963
-[s S836 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S836 . PD2 PC2 CCP10 CCP9E ]
-"25969
-[s S837 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S837 . RDE WRE CS PC3E ]
-"25975
-[s S838 :2 `uc 1 :1 `uc 1 ]
-[n S838 . . PB2 ]
-"25956
-[u S834 `S835 1 `S836 1 `S837 1 `S838 1 ]
-[n S834 . . . . . ]
-"25980
-[v _PORTEbits `VS834 ~T0 @X0 0 e@3972 ]
-[v F13731 `(v ~T0 @X0 1 tf1`ul ]
-"161 /Applications/microchip/xc8/v1.41/include/pic18.h
-[v __delay `JF13731 ~T0 @X0 0 e ]
-[p i __delay ]
-"30 lcdCon.h
-[v _display_LCD `(v ~T0 @X0 0 ef1`uc ]
-"33
-[v _second_line_LCD `(v ~T0 @X0 0 ef ]
-"27 menu.h
-[v _welcome `(v ~T0 @X0 0 ef ]
-"28
-[v _menu `(v ~T0 @X0 0 ef ]
+"29 keypadCon.h
+[v _obtainedKey `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -12279,250 +12206,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;lcdCon.h: 27: void setup_LCD();
-[; ;lcdCon.h: 28: void ready_LCD();
-[; ;lcdCon.h: 29: void command_LCD(unsigned char x);
-[; ;lcdCon.h: 30: void display_LCD(unsigned char data);
-[; ;lcdCon.h: 31: void display_string_LCD(unsigned char *data);
-[; ;lcdCon.h: 32: void first_line_LCD();
-[; ;lcdCon.h: 33: void second_line_LCD();
-[; ;lcdCon.h: 34: void clear_LCD();
-[; ;lcdCon.h: 35: unsigned char* read_display_LCD();
-[; ;profile.h: 27: unsigned char readPassword(unsigned char address);
-[; ;profile.h: 28: void writePassword(unsigned char value, unsigned char address);
-[; ;profile.h: 29: void preset();
-[; ;profile.h: 30: void profile();
-[; ;profile.h: 31: unsigned char checkPassword();
-[; ;status.h: 28: void pwmInit();
-[; ;status.h: 29: void open();
-[; ;status.h: 30: void close();
-"26 menu.h
-[v _flag `uc ~T0 @X0 1 e ]
-[; ;menu.h: 26: unsigned char flag;
-[; ;menu.h: 27: void welcome();
-[; ;menu.h: 28: void menu();
+[; ;alarm.h: 28: void alarm();
 [; ;keypadCon.h: 28: unsigned char getKey();
 [; ;keypadCon.h: 29: unsigned char obtainedKey();
-[; ;alarm.h: 28: void alarm();
-"22 mainCode.c
-[p x OSC=IRCIO67 ]
-"23
-[p x MCLRE=ON ]
-"24
-[p x PBADEN=OFF ]
-"25
-[p x LVP=OFF ]
-"26
-[p x WDT=OFF ]
-"28
-[v _main `(v ~T0 @X0 1 ef ]
+"12 alarm.c
+[v _alarm `(v ~T0 @X0 1 ef ]
 {
-[; ;mainCode.c: 28: void main(void) {
-[e :U _main ]
+[; ;alarm.c: 12: void alarm(){
+[e :U _alarm ]
 [f ]
-[; ;mainCode.c: 29: OSCCON = 0x70;
-"29
-[e = _OSCCON -> -> 112 `i `uc ]
-[; ;mainCode.c: 30: CMCON = 0xFF;
-"30
-[e = _CMCON -> -> 255 `i `uc ]
-[; ;mainCode.c: 31: CVRCONbits.CVREN = 0;
-"31
-[e = . . _CVRCONbits 0 4 -> -> 0 `i `uc ]
-[; ;mainCode.c: 32: ADCON1 = 0x0F;
-"32
-[e = _ADCON1 -> -> 15 `i `uc ]
-[; ;mainCode.c: 33: INTCON2bits.RBPU = 0;
-"33
-[e = . . _INTCON2bits 2 3 -> -> 0 `i `uc ]
-"35
-[v _key `uc ~T0 @X0 1 a ]
-[; ;mainCode.c: 35: unsigned char key;
-[; ;mainCode.c: 36: PORTA = 0x00;
-"36
-[e = _PORTA -> -> 0 `i `uc ]
-[; ;mainCode.c: 37: PORTB = 0x00;
-"37
-[e = _PORTB -> -> 0 `i `uc ]
-[; ;mainCode.c: 38: PORTC = 0x00;
-"38
-[e = _PORTC -> -> 0 `i `uc ]
-[; ;mainCode.c: 39: PORTD = 0x00;
-"39
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;mainCode.c: 40: PORTE = 0x00;
-"40
-[e = _PORTE -> -> 0 `i `uc ]
-[; ;mainCode.c: 41: LATA = 0x00;
-"41
-[e = _LATA -> -> 0 `i `uc ]
-[; ;mainCode.c: 42: LATB = 0x00;
-"42
-[e = _LATB -> -> 0 `i `uc ]
-[; ;mainCode.c: 43: LATC = 0x00;
-"43
-[e = _LATC -> -> 0 `i `uc ]
-[; ;mainCode.c: 44: LATD = 0x00;
-"44
-[e = _LATD -> -> 0 `i `uc ]
-[; ;mainCode.c: 45: LATE = 0x00;
-"45
-[e = _LATE -> -> 0 `i `uc ]
-[; ;mainCode.c: 46: TRISA = 0x00;
-"46
-[e = _TRISA -> -> 0 `i `uc ]
-[; ;mainCode.c: 47: TRISB = 0x03;
-"47
-[e = _TRISB -> -> 3 `i `uc ]
-[; ;mainCode.c: 48: TRISC = 0xF0;
-"48
-[e = _TRISC -> -> 240 `i `uc ]
-[; ;mainCode.c: 49: TRISD = 0x00;
-"49
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;mainCode.c: 50: TRISE = 0x00;
-"50
-[e = _TRISE -> -> 0 `i `uc ]
-[; ;mainCode.c: 52: setup_LCD();
-"52
-[e ( _setup_LCD ..  ]
-[; ;mainCode.c: 53: pwmInit();
-"53
-[e ( _pwmInit ..  ]
-[; ;mainCode.c: 54: while(1){
-"54
+[; ;alarm.c: 13: while(1){
+"13
 [e :U 1122 ]
 {
-[; ;mainCode.c: 56: if(readPassword(0x20) != 'A' &&
-[; ;mainCode.c: 57: readPassword(0x20) != 'B' &&
-[; ;mainCode.c: 58: readPassword(0x20) != 'C' &&
-[; ;mainCode.c: 59: readPassword(0x20) != 'D')
-"59
-[e $ ! && && && != -> ( _readPassword (1 -> -> 32 `i `uc `ui -> 65 `ui != -> ( _readPassword (1 -> -> 32 `i `uc `ui -> 66 `ui != -> ( _readPassword (1 -> -> 32 `i `uc `ui -> 67 `ui != -> ( _readPassword (1 -> -> 32 `i `uc `ui -> 68 `ui 1124  ]
-[; ;mainCode.c: 60: {
-"60
+[; ;alarm.c: 14: PORTEbits.RE0 = 1;
+"14
+[e = . . _PORTEbits 0 0 -> -> 1 `i `uc ]
+[; ;alarm.c: 16: if(PORTBbits.RB1 != 0){
+"16
+[e $ ! != -> . . _PORTBbits 0 1 `i -> 0 `i 1124  ]
 {
-[; ;mainCode.c: 61: profile();
-"61
-[e ( _profile ..  ]
-"62
+[; ;alarm.c: 17: PORTAbits.RA0 = 1;
+"17
+[e = . . _PORTAbits 0 0 -> -> 1 `i `uc ]
+"18
 }
-[; ;mainCode.c: 62: }else{
-[e $U 1125  ]
 [e :U 1124 ]
+[; ;alarm.c: 18: }
+[; ;alarm.c: 19: if(obtainedKey()){
+"19
+[e $ ! != -> ( _obtainedKey ..  `i -> -> -> 0 `i `uc `i 1125  ]
 {
-[; ;mainCode.c: 63: ready_LCD();
-"63
-[e ( _ready_LCD ..  ]
-[; ;mainCode.c: 64: display_string_LCD("Enter Password");
-"64
-[e ( _display_string_LCD (1 -> :s 1C `*uc ]
-[; ;mainCode.c: 65: alarm();
-"65
-[e ( _alarm ..  ]
-[; ;mainCode.c: 66: if(checkPassword() != 1){
-"66
-[e $ ! != -> ( _checkPassword ..  `i -> 1 `i 1126  ]
-{
-[; ;mainCode.c: 67: clear_LCD();
-"67
-[e ( _clear_LCD ..  ]
-[; ;mainCode.c: 68: ready_LCD();
-"68
-[e ( _ready_LCD ..  ]
-[; ;mainCode.c: 69: display_string_LCD("Wrong Password");
-"69
-[e ( _display_string_LCD (1 -> :s 2C `*uc ]
-"70
-}
-[; ;mainCode.c: 70: }else{
-[e $U 1127  ]
-[e :U 1126 ]
-{
-[; ;mainCode.c: 71: while(1){
-"71
-[e :U 1129 ]
-{
-[; ;mainCode.c: 72: PORTAbits.RA0 = 0;
-"72
-[e = . . _PORTAbits 0 0 -> -> 0 `i `uc ]
-[; ;mainCode.c: 73: PORTEbits.RE0 = 0;
-"73
-[e = . . _PORTEbits 0 0 -> -> 0 `i `uc ]
-[; ;mainCode.c: 74: clear_LCD();
-"74
-[e ( _clear_LCD ..  ]
-[; ;mainCode.c: 75: ready_LCD();
-"75
-[e ( _ready_LCD ..  ]
-[; ;mainCode.c: 76: display_string_LCD("Alarm Deactiv");
-"76
-[e ( _display_string_LCD (1 -> :s 3C `*uc ]
-[; ;mainCode.c: 77: _delay((unsigned long)((1500)*(8000000/4000.0)));
-"77
-[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;mainCode.c: 78: clear_LCD();
-"78
-[e ( _clear_LCD ..  ]
-[; ;mainCode.c: 79: ready_LCD();
-"79
-[e ( _ready_LCD ..  ]
-[; ;mainCode.c: 80: display_string_LCD("Welcome User ");
-"80
-[e ( _display_string_LCD (1 -> :s 4C `*uc ]
-[; ;mainCode.c: 81: display_LCD(readPassword(0x20));
-"81
-[e ( _display_LCD (1 ( _readPassword (1 -> -> 32 `i `uc ]
-[; ;mainCode.c: 82: second_line_LCD();
-"82
-[e ( _second_line_LCD ..  ]
-[; ;mainCode.c: 83: welcome();
-"83
-[e ( _welcome ..  ]
-[; ;mainCode.c: 84: menu();
-"84
-[e ( _menu ..  ]
-[; ;mainCode.c: 85: if(flag == 1){
-"85
-[e $ ! == -> _flag `i -> 1 `i 1131  ]
-{
-[; ;mainCode.c: 86: return;
-"86
+[; ;alarm.c: 20: return;
+"20
 [e $UE 1120  ]
-"87
-}
-[e :U 1131 ]
-"88
-}
-[e :U 1128 ]
-"71
-[e $U 1129  ]
-[e :U 1130 ]
-"89
-}
-[e :U 1127 ]
-"90
+"21
 }
 [e :U 1125 ]
-"91
+"22
 }
 [e :U 1121 ]
-"54
+"13
 [e $U 1122  ]
 [e :U 1123 ]
-[; ;mainCode.c: 87: }
-[; ;mainCode.c: 88: }
-[; ;mainCode.c: 89: }
-[; ;mainCode.c: 90: }
-[; ;mainCode.c: 91: }
-[; ;mainCode.c: 93: return;
-"93
-[e $UE 1120  ]
-[; ;mainCode.c: 94: }
-"94
+[; ;alarm.c: 21: }
+[; ;alarm.c: 22: }
+[; ;alarm.c: 23: }
+"23
 [e :UE 1120 ]
 }
-[a 3C 65 108 97 114 109 32 68 101 97 99 116 105 118 0 ]
-[a 1C 69 110 116 101 114 32 80 97 115 115 119 111 114 100 0 ]
-[a 2C 87 114 111 110 103 32 80 97 115 115 119 111 114 100 0 ]
-[a 4C 87 101 108 99 111 109 101 32 85 115 101 114 32 0 ]

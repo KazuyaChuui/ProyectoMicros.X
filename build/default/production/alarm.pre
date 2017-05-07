@@ -1,5 +1,5 @@
 
-# 1 "menu.c"
+# 1 "alarm.c"
 
 # 26 "/Applications/microchip/xc8/v1.41/include/htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -16239,85 +16239,23 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 26 "menu.h"
-unsigned char flag;
-void welcome();
-void menu();
-
-# 27 "lcdCon.h"
-void setup_LCD();
-void ready_LCD();
-void command_LCD(unsigned char x);
-void display_LCD(unsigned char data);
-void display_string_LCD(unsigned char *data);
-void first_line_LCD();
-void second_line_LCD();
-void clear_LCD();
-unsigned char* read_display_LCD();
-
-# 28 "status.h"
-void pwmInit();
-void open();
-void close();
+# 28 "alarm.h"
+void alarm();
 
 # 28 "keypadCon.h"
 unsigned char getKey();
 unsigned char obtainedKey();
 
-# 27 "profile.h"
-unsigned char readPassword(unsigned char address);
-void writePassword(unsigned char value, unsigned char address);
-void preset();
-void profile();
-unsigned char checkPassword();
-
-# 16 "menu.c"
-void welcome(){
-ready_LCD();
-display_string_LCD("1.Door 2.LogOut");
-}
-
-void menu(){
+# 12 "alarm.c"
+void alarm(){
 while(1){
-flag = 0;
-if(obtainedKey() == '1'){
-clear_LCD();
-first_line_LCD();
-display_string_LCD("1.Unlock 2.Lock");
-if(obtainedKey() == '1'){
-open();
-clear_LCD();
-first_line_LCD();
-display_string_LCD("-Door Unlocked-");
-second_line_LCD();
-display_string_LCD("A to GoBack");
-if(obtainedKey() == 'A'){
-clear_LCD();
-return;
+PORTEbits.RE0 = 1;
+
+if(PORTBbits.RB1 != 0){
+PORTAbits.RA0 = 1;
 }
-}else if(obtainedKey() == '2'){
-close();
-clear_LCD();
-first_line_LCD();
-display_string_LCD("-Door Locked-");
-second_line_LCD();
-display_string_LCD("A to GoBack");
-if(obtainedKey() == 'A'){
-clear_LCD();
+if(obtainedKey()){
 return;
 }
 }
-}else if(obtainedKey() == '2'){
-clear_LCD();
-ready_LCD();
-display_string_LCD("Bye user ");
-display_LCD(readPassword(0x20));
-second_line_LCD();
-display_string_LCD("Alarm Active");
-_delay((unsigned long)((2500)*(8000000/4000.0)));
-flag = 1;
-return;
-}
-}
-return;
 }

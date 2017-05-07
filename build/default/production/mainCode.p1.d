@@ -5,4 +5,5 @@ profile.h  \
 lcdCon.h  \
 menu.h  \
 status.h  \
+alarm.h  \
 keypadCon.h 

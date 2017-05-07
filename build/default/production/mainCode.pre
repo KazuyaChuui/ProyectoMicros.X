@@ -16271,8 +16271,11 @@ void menu();
 unsigned char getKey();
 unsigned char obtainedKey();
 
+# 28 "alarm.h"
+void alarm();
 
-# 24 "mainCode.c"
+
+# 22 "mainCode.c"
 #pragma config OSC = IRCIO67
 #pragma config MCLRE = ON
 #pragma config PBADEN = OFF
@@ -16284,18 +16287,21 @@ OSCCON = 0x70;
 CMCON = 0xFF;
 CVRCONbits.CVREN = 0;
 ADCON1 = 0x0F;
-
+INTCON2bits.RBPU = 0;
 
 unsigned char key;
 PORTA = 0x00;
+PORTB = 0x00;
 PORTC = 0x00;
 PORTD = 0x00;
 PORTE = 0x00;
 LATA = 0x00;
+LATB = 0x00;
 LATC = 0x00;
 LATD = 0x00;
 LATE = 0x00;
 TRISA = 0x00;
+TRISB = 0x03;
 TRISC = 0xF0;
 TRISD = 0x00;
 TRISE = 0x00;
@@ -16313,13 +16319,19 @@ profile();
 }else{
 ready_LCD();
 display_string_LCD("Enter Password");
-
+alarm();
 if(checkPassword() != 1){
 clear_LCD();
 ready_LCD();
 display_string_LCD("Wrong Password");
 }else{
 while(1){
+PORTAbits.RA0 = 0;
+PORTEbits.RE0 = 0;
+clear_LCD();
+ready_LCD();
+display_string_LCD("Alarm Deactiv");
+_delay((unsigned long)((1500)*(8000000/4000.0)));
 clear_LCD();
 ready_LCD();
 display_string_LCD("Welcome User ");

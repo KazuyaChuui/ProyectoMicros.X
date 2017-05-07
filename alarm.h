@@ -7,11 +7,13 @@
 
 // This is a guard condition so that contents of this file are not included
 // more than once.  
-#ifndef lcdCon_H
-#define	lcdCon_H
+#ifndef alarm_H
+#define	alarm_H
 
 #include <xc.h> // include processor files - each processor file is guarded.  
-#define _XTAL_FREQ 8000000
+#define Buzzer  PORTAbits.RA0
+#define LEDAlarm    PORTEbits.RE0
+#define Sensor2 PORTBbits.RB1
 
 #ifdef	__cplusplus
 extern "C" {
@@ -23,15 +25,6 @@ extern "C" {
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
-
-void setup_LCD();
-void ready_LCD();
-void command_LCD(unsigned char x);
-void display_LCD(unsigned char data);
-void display_string_LCD(unsigned char *data);
-void first_line_LCD();
-void second_line_LCD();
-void clear_LCD();
-
-#endif	/* lcdCon_H */
+void alarm();
+#endif	/* alarm_H */
 

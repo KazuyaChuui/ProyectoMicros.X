@@ -12327,38 +12327,45 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;menu.c: 55: display_LCD(readPassword(0x20));
 "55
 [e ( _display_LCD (1 ( _readPassword (1 -> -> 32 `i `uc ]
-[; ;menu.c: 56: _delay((unsigned long)((2500)*(8000000/4000.0)));
+[; ;menu.c: 56: second_line_LCD();
 "56
-[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-[; ;menu.c: 57: flag = 1;
+[e ( _second_line_LCD ..  ]
+[; ;menu.c: 57: display_string_LCD("Alarm Active");
 "57
-[e = _flag -> -> 1 `i `uc ]
-[; ;menu.c: 58: return;
+[e ( _display_string_LCD (1 -> :s 8C `*uc ]
+[; ;menu.c: 58: _delay((unsigned long)((2500)*(8000000/4000.0)));
 "58
-[e $UE 1121  ]
+[e ( __delay (1 -> * -> -> 2500 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+[; ;menu.c: 59: flag = 1;
 "59
+[e = _flag -> -> 1 `i `uc ]
+[; ;menu.c: 60: return;
+"60
+[e $UE 1121  ]
+"61
 }
 [e :U 1132 ]
-"60
+"62
 [e :U 1131 ]
 }
 [e :U 1122 ]
 "22
 [e $U 1123  ]
 [e :U 1124 ]
-[; ;menu.c: 59: }
-[; ;menu.c: 60: }
-[; ;menu.c: 61: return;
-"61
-[e $UE 1121  ]
+[; ;menu.c: 61: }
 [; ;menu.c: 62: }
-"62
+[; ;menu.c: 63: return;
+"63
+[e $UE 1121  ]
+[; ;menu.c: 64: }
+"64
 [e :UE 1121 ]
 }
 [a 1C 49 46 68 111 111 114 32 50 46 76 111 103 79 117 116 0 ]
 [a 2C 49 46 85 110 108 111 99 107 32 50 46 76 111 99 107 0 ]
 [a 4C 65 32 116 111 32 71 111 66 97 99 107 0 ]
 [a 6C 65 32 116 111 32 71 111 66 97 99 107 0 ]
+[a 8C 65 108 97 114 109 32 65 99 116 105 118 101 0 ]
 [a 3C 45 68 111 111 114 32 85 110 108 111 99 107 101 100 45 0 ]
 [a 5C 45 68 111 111 114 32 76 111 99 107 101 100 45 0 ]
 [a 7C 66 121 101 32 117 115 101 114 32 0 ]

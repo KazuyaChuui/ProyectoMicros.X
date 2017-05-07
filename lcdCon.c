@@ -84,12 +84,3 @@ void second_line_LCD(){
 void clear_LCD(){
     command_LCD(0x01);
 }
-unsigned char* read_display_LCD(){
-    RS = 1;
-    RW = 1;
-    unsigned char value = PORTD;
-    E = 1;
-    __delay_ms(.45);
-    E = 0;
-    return value;
-}
