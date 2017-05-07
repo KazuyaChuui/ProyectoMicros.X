@@ -24,7 +24,6 @@ extern "C" {
 }
 #endif /* __cplusplus */
 
-
 void setup_LCD();
 void ready_LCD();
 void command_LCD(unsigned char x);
@@ -33,5 +32,6 @@ void display_string_LCD(unsigned char *data);
 void first_line_LCD();
 void second_line_LCD();
 void clear_LCD();
+unsigned char* read_display_LCD();
 #endif	/* lcdCon_H */
 

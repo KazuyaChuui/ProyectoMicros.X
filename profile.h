@@ -24,6 +24,10 @@ extern "C" {
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
-
+unsigned char readPassword(unsigned char address);
+void writePassword(unsigned char value, unsigned char address);
+void preset();
+void profile();
+unsigned char checkPassword();
 #endif	/* profile_H */
 

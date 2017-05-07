@@ -41,7 +41,7 @@ void command_LCD(unsigned char x){
     RS = 0;
     RW = 0;
     E = 1;
-    __delay_ms(.00045);
+    __delay_ms(.45);
     E = 0;
 }
 
@@ -51,7 +51,7 @@ void ready_LCD(){
     RW = 1;
     do{
         E = 1;
-        __delay_ms(.00045);
+        __delay_ms(.45);
         E = 0;
     }while(DB7 == 1);
     TRISD = 0x00;
@@ -62,21 +62,34 @@ void display_LCD(unsigned char data){
     RS = 1;
     RW = 0;
     E = 1;
-    __delay_ms(.00045);
+    __delay_ms(.45);
     E = 0;
 }
 
 void display_string_LCD(unsigned char *data){
     RS = 1;
-    while(*data)
+    while(*data){
         display_LCD(*data++);
+    }
+    ready_LCD();
 }
 void first_line_LCD(){
     command_LCD(0x20);
+    ready_LCD();
 }
 void second_line_LCD(){
     command_LCD(0xC0);
+    ready_LCD();
 }
 void clear_LCD(){
     command_LCD(0x01);
+}
+unsigned char* read_display_LCD(){
+    RS = 1;
+    RW = 1;
+    unsigned char value = PORTD;
+    E = 1;
+    __delay_ms(.45);
+    E = 0;
+    return value;
 }

@@ -76,7 +76,7 @@ unsigned char obtainedKey(){
     do{
         key_presionada = getKey();
     }
-    while(key_presionada == 0xFF);  //Hasta que la tecla este presionada
+    while(key_presionada == 0xFF);  //Hasta que la tecla sea presionada
     
     while(getKey() != 0xFF); //Hasta que la tecla se suelte
     return key_presionada;

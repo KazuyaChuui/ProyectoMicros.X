@@ -51,24 +51,36 @@ void main(void) {
     setup_LCD();
     pwmInit();
     while(1){
-        menu();
-        /*
-          for(unsigned int i = 0; i<17; i++){
-            key = obtainedKey();
-            if(key == 'A'){
-                open();
+        //preset();
+        if(readPassword(0x20) != 'A' && 
+           readPassword(0x20) != 'B' &&
+           readPassword(0x20) != 'C' && 
+           readPassword(0x20) != 'D')
+        {
+            profile();
+        }else{
+            ready_LCD();
+            display_string_LCD("Enter Password");
+            
+            if(checkPassword() != 1){
+                    clear_LCD();
+                    ready_LCD();
+                    display_string_LCD("Wrong Password");
+            }else{
+                while(1){
+                    clear_LCD();
+                    ready_LCD();
+                    display_string_LCD("Welcome User ");
+                    display_LCD(readPassword(0x20));
+                    second_line_LCD();
+                    welcome();
+                    menu();
+                    if(flag == 1){
+                        return;
+                    }
+                }
             }
-            if(key == 'B'){
-                close();
-            }
-            //command_LCD(0x80);
-            //ready_LCD();
-            display_LCD(key);
-            ready_LCD();        
-        }
-        clear_LCD();
-         */
-        
+        }          
     }
     
     return;

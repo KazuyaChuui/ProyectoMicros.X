@@ -23,6 +23,8 @@ extern "C" {
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */
+unsigned char flag;
+void welcome();
 void menu();
 #endif	/* menu_H */
 
