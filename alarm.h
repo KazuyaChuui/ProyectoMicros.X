@@ -12,8 +12,8 @@
 
 #include <xc.h> // include processor files - each processor file is guarded.  
 #define Buzzer  PORTAbits.RA0
-#define LEDAlarm    PORTEbits.RE0
-#define Sensor2 PORTBbits.RB1
+#define LEDAlarm    PORTEbits.RE1
+#define Sensor2 PORTBbits.RB2
 
 #ifdef	__cplusplus
 extern "C" {

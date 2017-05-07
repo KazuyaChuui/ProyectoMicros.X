@@ -5,10 +5,10 @@
  * Created on April 21, 2017, 4:50 PM
  */
 
-#define LED1    PORTAbits.RA4
+#define LEDBu   PORTAbits.RE0
 #define LED2    PORTAbits.RA5
-#define Sensor1 PORTBbits.RB0
-#define Backup  PORTBbits.RB2
+#define Sensor1 PORTBbits.RB1
+#define Backup  PORTBbits.RB0
 
 #include <xc.h>
 #include "lcdCon.h"
@@ -25,12 +25,28 @@
 #pragma config LVP = OFF
 #pragma config WDT = OFF
 
+void interrupt backup(void);
+void interrupt low_priority luz(void);
+
 void main(void) {
     OSCCON = 0x70;
     CMCON = 0xFF;
     CVRCONbits.CVREN = 0;
     ADCON1 = 0x0F;
     INTCON2bits.RBPU = 0;
+    RCONbits.IPEN = 1; //prioridades activadas
+    INTCONbits.GIEH = 1; // prioridades altas activadas
+    INTCONbits.GIEL = 1; // prioridades bajas activadas
+
+    //configuracion de INT0 activada por RB0
+    //prioridad alta por default
+    INTCON2bits.INTEDG0 = 1;//activada por rising edge
+    INTCONbits.INT0IE = 1; //activa la interrupcion
+    
+    //configuracion de INT1 activada por RB1
+    INTCON3bits.INT1IP = 0; //prioridad baja
+    INTCON2bits.INTEDG1 = 1;//activada por rising edge
+    INTCON3bits.INT1IE=1;//activa la interrupcion
     
     unsigned char key;
     PORTA = 0x00;
@@ -44,11 +60,11 @@ void main(void) {
     LATD = 0x00;
     LATE = 0x00;
     TRISA = 0x00;
-    TRISB = 0x03;
+    TRISB = 0x07;
     TRISC = 0xF0;
     TRISD = 0x00;
     TRISE = 0x00;
-  
+    
     setup_LCD();
     pwmInit();
     while(1){
@@ -91,4 +107,31 @@ void main(void) {
     }
     
     return;
+}
+void interrupt low_priority luz(void){//RB1=1
+ INTCON3bits.INT1IF = 0;//limpiamos la bandera
+
+ PORTAbits.RA5=1;
+ __delay_ms(3000);
+ PORTAbits.RA5=0;
+ 
+    return;
+}
+void interrupt backup(void){ //RB2 pasa de 0 a 1 pin35
+INTCONbits.INT0IF = 0;//limpiar bandera
+PORTAbits.RA5=0;//apagar luces
+
+PORTEbits.RE0=1;
+__delay_ms(500);
+PORTEbits.RE0=0;
+__delay_ms(500);
+PORTEbits.RE0=1;
+__delay_ms(500);
+PORTEbits.RE0=0;
+__delay_ms(500);
+PORTEbits.RE0=1;
+__delay_ms(500);
+PORTEbits.RE0=0;
+__delay_ms(500);
+return;
 }

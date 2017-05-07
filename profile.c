@@ -11,17 +11,36 @@
 #include "lcdCon.h"
 #include "keypadCon.h"
 
+unsigned char eeprom_r(unsigned char address){
+    EEADR = address;
+	EECON1bits.CFGS = 0;// allow access to EEPROM
+	EECON1bits.EEPGD = 0;//to have access
+	EECON1bits.RD = 1;
+    NOP();
+    NOP();
+    return EEDATA;
+}
+void eeprom_w(unsigned char address, unsigned char value){
+    EEADR = address;
+    EEDATA = value;
+    EECON1bits.EEPGD =0;
+    EECON1bits.CFGS = 0;
+    INTCONbits.GIE = 0; //disable interruptions
+    EECON2 = 0x55;
+    EECON2 = 0xAA;
+    EECON1bits.WR = 1;
+    while(EECON1bits.WR); // hasta que este completo
+    INTCONbits.GIE = 1; // reenable interruptions
+    EECON1bits.WREN = 0;
+    
+}
 unsigned char readPassword(unsigned char address){
     volatile unsigned char value;
-    value = eeprom_read(address);
+    value = eeprom_r(address);
     return value;
 }
 void writePassword(unsigned char value, unsigned char address){
-    eeprom_write(address, value);     
-}
-void preset(){
-    writePassword('C',0x00);
-    writePassword('A',0x01);
+    eeprom_w(address, value);     
 }
 void profile(){
     unsigned int i = 0;
@@ -41,11 +60,6 @@ void profile(){
     }while(i<2);
     clear_LCD();
     first_line_LCD();
-    display_string_LCD("Which temp");
-    second_line_LCD();
-    display_string_LCD("range 1-9");
-    writePassword(obtainedKey(),0x40);
-    clear_LCD();
 }
 unsigned char checkPassword(){
     unsigned char i = 0;
