@@ -15438,9 +15438,9 @@ INTCONbits.GIEH = 1;
 INTCONbits.GIEL = 1;
 
 
-
-INTCON2bits.INTEDG0 = 1;
-INTCONbits.INT0IE = 1;
+INTCON3bits.INT2IP=1;
+INTCON2bits.INTEDG2 = 1;
+INTCON3bits.INT2IE = 1;
 
 
 INTCON3bits.INT1IP = 0;
@@ -15517,7 +15517,7 @@ PORTAbits.RA5=0;
 return;
 }
 void interrupt backup(void){
-INTCONbits.INT0IF = 0;
+INTCON3bits.INT2IF = 0;
 PORTAbits.RA5=0;
 
 PORTEbits.RE0=1;

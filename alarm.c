@@ -11,12 +11,12 @@
 
 void alarm(){
     while(1){
-        LEDAlarm = 1;
+        LEDAlarm = 1;//enciende el led
 
-        if(Sensor2 != 0){
+        if(Sensor2 != 0){//si el sensor detecta algo
             Buzzer = 1;
         }  
-        if(obtainedKey()){
+        if(obtainedKey()){//si se presiona cualquier tecla sale del while
             return;
         }
     }

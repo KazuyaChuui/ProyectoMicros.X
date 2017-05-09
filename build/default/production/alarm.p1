@@ -11606,9 +11606,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;alarm.c: 14: PORTEbits.RE1 = 1;
 "14
 [e = . . _PORTEbits 0 1 -> -> 1 `i `uc ]
-[; ;alarm.c: 16: if(PORTBbits.RB2 != 0){
+[; ;alarm.c: 16: if(PORTBbits.RB0 != 0){
 "16
-[e $ ! != -> . . _PORTBbits 0 2 `i -> 0 `i 1089  ]
+[e $ ! != -> . . _PORTBbits 0 0 `i -> 0 `i 1089  ]
 {
 [; ;alarm.c: 17: PORTAbits.RA0 = 1;
 "17

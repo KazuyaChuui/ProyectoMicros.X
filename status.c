@@ -20,8 +20,8 @@ void pwmInit(){
 
 }
 void open(){
-    CCPR1L = 0x5F;// 15 %
+    CCPR1L = 0x5F;// 15 % de 625 que es el maximo valor
 }
 void close(){
-    CCPR1L = 0x1F;// 5 %
+    CCPR1L = 0x1F;// 5 % de 625
 }

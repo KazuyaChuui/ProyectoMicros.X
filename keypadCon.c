@@ -60,7 +60,7 @@ unsigned char getKey(){
     if(columna3 == 0) return '#';
     if(columna4 == 0) return 'D';
     
-    return 0xFF;
+    return 0xFF;//default si nada es presionado
 }
 
 void ground(){

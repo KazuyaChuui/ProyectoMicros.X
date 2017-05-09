@@ -15394,7 +15394,7 @@ void alarm(){
 while(1){
 PORTEbits.RE1 = 1;
 
-if(PORTBbits.RB2 != 0){
+if(PORTBbits.RB0 != 0){
 PORTAbits.RA0 = 1;
 }
 if(obtainedKey()){

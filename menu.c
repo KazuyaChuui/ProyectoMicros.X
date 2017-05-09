@@ -20,24 +20,24 @@ void welcome(){
 
 void menu(){
     while(1){
-        flag = 0;
-        if(obtainedKey() == '1'){
+        flag = 0;//Asigna la bandera a 0
+        if(obtainedKey() == '1'){//Si el teclado se presiona 1
             clear_LCD();
             first_line_LCD();
             display_string_LCD("1.Unlock 2.Lock");
             if(obtainedKey() == '1'){
-                open();
+                open();//abre el servo motor gracias al PWM
                 clear_LCD();
                 first_line_LCD();
                 display_string_LCD("-Door Unlocked-");
                 second_line_LCD();
                 display_string_LCD("A to GoBack");
-                if(obtainedKey() == 'A'){
+                if(obtainedKey() == 'A'){//Regresa al menu
                     clear_LCD();
                     return;
                 }  
             }else if(obtainedKey() == '2'){
-                close();
+                close();//Cierra el servo motor gracias al PWM
                 clear_LCD();
                 first_line_LCD();
                 display_string_LCD("-Door Locked-");
@@ -55,8 +55,8 @@ void menu(){
             display_LCD(readPassword(0x20));
             second_line_LCD();
             display_string_LCD("Alarm Active");
-            __delay_ms(2500);
-            flag = 1;
+            __delay_ms(2500);//Para que se alcance a leer el mensaje anterior
+            flag = 1;//levanta la bandera para salir del menu
             return;
         }
     }

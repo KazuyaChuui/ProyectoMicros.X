@@ -11780,12 +11780,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mainCode.c: 39: INTCONbits.GIEL = 1;
 "39
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-[; ;mainCode.c: 43: INTCON2bits.INTEDG0 = 1;
+[; ;mainCode.c: 42: INTCON3bits.INT2IP=1;
+"42
+[e = . . _INTCON3bits 0 7 -> -> 1 `i `uc ]
+[; ;mainCode.c: 43: INTCON2bits.INTEDG2 = 1;
 "43
-[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
-[; ;mainCode.c: 44: INTCONbits.INT0IE = 1;
+[e = . . _INTCON2bits 1 4 -> -> 1 `i `uc ]
+[; ;mainCode.c: 44: INTCON3bits.INT2IE = 1;
 "44
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
+[e = . . _INTCON3bits 0 4 -> -> 1 `i `uc ]
 [; ;mainCode.c: 47: INTCON3bits.INT1IP = 0;
 "47
 [e = . . _INTCON3bits 0 6 -> -> 0 `i `uc ]
@@ -12015,9 +12018,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mainCode.c: 120: void interrupt backup(void){
 [e :U _backup ]
 [f ]
-[; ;mainCode.c: 121: INTCONbits.INT0IF = 0;
+[; ;mainCode.c: 121: INTCON3bits.INT2IF = 0;
 "121
-[e = . . _INTCONbits 0 1 -> -> 0 `i `uc ]
+[e = . . _INTCON3bits 0 1 -> -> 0 `i `uc ]
 [; ;mainCode.c: 122: PORTAbits.RA5=0;
 "122
 [e = . . _PORTAbits 0 5 -> -> 0 `i `uc ]

@@ -68,7 +68,7 @@ void display_LCD(unsigned char data){
 
 void display_string_LCD(unsigned char *data){
     RS = 1;
-    while(*data){
+    while(*data){       //repite para leer toda la cadena de caracteres
         display_LCD(*data++);
     }
     ready_LCD();
